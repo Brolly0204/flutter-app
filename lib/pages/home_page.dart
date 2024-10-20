@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widget/banner_widget.dart';
 import '../dao/login_dao.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,6 +23,11 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    final List<String> bannerList = [
+      "https://dimg04.c-ctrip.com/images/0AM5w12000g3tat1a3DA2.webp",
+      "https://dimg04.c-ctrip.com/images/0AM2012000g6f7cp7DFCA_Q10.webp",
+      "https://pic.c-ctrip.com/AssetCatalog/gongge/headImg1.png"
+    ];
     return Scaffold(
       appBar: AppBar(
         // backgroundColor: Colors.blue,
@@ -32,24 +38,7 @@ class _HomePageState extends State<HomePage>
         actions: [_logoutBtn],
       ),
       body: Column(
-        children: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blueAccent,
-              foregroundColor: Colors.white,
-            ),
-            onPressed: () {},
-            child: const Text('Button'),
-          ),
-          const Center(
-            child: TextField(
-              decoration: InputDecoration(
-                labelText: "用户名",
-                hintText: "用户名或邮箱",
-              ),
-            ),
-          )
-        ],
+        children: [BannerWidget(bannerList: bannerList)],
       ),
     );
   }
