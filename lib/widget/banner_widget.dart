@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_app/model/home_model.dart';
 import '../util/screen_adapter_helper.dart';
 
 class BannerWidget extends StatefulWidget {
-  final List<String> bannerList;
+  final List<CommonModel> bannerList;
   const BannerWidget({super.key, required this.bannerList});
 
   @override
@@ -32,15 +33,37 @@ class _BannerWidgetState extends State<BannerWidget> {
                   setState(() {
                     _currentIndex = index;
                   });
-                }))
+                })),
+        Positioned(bottom: 10, left: 0, right: 0, child: _indicator())
       ],
     );
   }
 
-  Widget _bannerItem(String imageUrl, double width) {
+  Widget _bannerItem(CommonModel model, double width) {
     return GestureDetector(
-      child: Image.network(imageUrl, width: width, fit: BoxFit.fill),
+      child: Image.network(model.icon!, width: width, fit: BoxFit.fill),
       onTap: () {},
     );
+  }
+
+  Widget _indicator() {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: widget.bannerList.asMap().entries.map((entry) {
+          return GestureDetector(
+            onTap: () {
+              _controller.animateToPage(entry.key);
+            },
+            child: Container(
+              width: 6,
+              height: 6,
+              margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: (Colors.white)
+                      .withOpacity(entry.key == _currentIndex ? 0.9 : 0.4)),
+            ),
+          );
+        }).toList());
   }
 }

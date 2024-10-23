@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  _Background() {
+  List<Widget> _Background() {
     return [
       Positioned.fill(
           child: Image.asset('images/login-bg1.jpg', fit: BoxFit.cover)),

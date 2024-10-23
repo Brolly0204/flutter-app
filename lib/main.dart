@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    ScreenHelper.init(context);
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -47,8 +46,7 @@ class MyApp extends StatelessWidget {
                   child: CircularProgressIndicator(
                     strokeWidth: 4.0,
                     backgroundColor: Colors.blue,
-// value: 0.2,
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+//                     valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
                   ),
                 ));
               }
