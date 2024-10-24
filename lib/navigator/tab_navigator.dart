@@ -20,7 +20,6 @@ class _TabNavigatorState extends State<TabNavigator> {
   final Color _activeColor = Colors.blueAccent;
   @override
   Widget build(BuildContext context) {
-    NavigatorUtil.updateContext(context);
     return Scaffold(
       body: PageView(
         /// 禁止左右滑动
