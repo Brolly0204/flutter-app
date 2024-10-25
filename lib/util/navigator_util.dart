@@ -69,7 +69,7 @@ class NavigatorUtil {
   }
 
   static goToLogin() {
-    Get.offAll(const LoginPage());
+    Get.offAll(() => const LoginPage());
     // Navigator.pushReplacement(
     //     _context!, MaterialPageRoute(builder: (context) => const LoginPage()));
   }
