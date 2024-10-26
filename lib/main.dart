@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/navigator/tab_navigator.dart';
+import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 import 'package:get/get.dart';
 import './dao/login_dao.dart';
 import './pages/home_page.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         ),
         // home: const LoginPage(),
         home: FutureBuilder<dynamic>(
-            future: HiCache.preInit(),
+            future: _doInit(),
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
               ScreenHelper.init(context);
               if (snapshot.connectionState == ConnectionState.done) {
@@ -52,5 +53,12 @@ class MyApp extends StatelessWidget {
                 ));
               }
             }));
+  }
+
+  Future<void> _doInit() async {
+    await HiCache.preInit();
+    Future.delayed(const Duration(milliseconds: 500), () {
+      FlutterSplashScreen.hide();
+    });
   }
 }
