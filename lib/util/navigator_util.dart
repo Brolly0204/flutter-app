@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/widget/hi_webview.dart';
 import 'package:get/get.dart';
+import '../mvvm/routes/app_pages.dart';
 import '../pages/home_page.dart';
 import '../pages/login_page.dart';
 import '../navigator/tab_navigator.dart';
@@ -62,15 +63,18 @@ class NavigatorUtil {
     //             )));
   }
 
-  static goToHome(BuildContext context) {
+  static goToHome(BuildContext? context) {
     /// Navigator.pushReplacement(
     ///     context, MaterialPageRoute(builder: (context) => const TabNavigator()));
-    Get.off(const TabNavigator());
+    // Get.off(const TabNavigator());
+    Get.offAllNamed(Routes.MAIN);
   }
 
   static goToLogin() {
-    Get.offAll(() => const LoginPage());
+    // Get.offAll(() => const LoginPage());
     // Navigator.pushReplacement(
     //     _context!, MaterialPageRoute(builder: (context) => const LoginPage()));
+    debugPrint(Routes.LOGIN);
+    Get.offAllNamed(Routes.LOGIN);
   }
 }
