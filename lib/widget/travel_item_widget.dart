@@ -104,17 +104,18 @@ class TravelItemWidget extends StatelessWidget {
           child: FadeInImage.memoryNetwork(
               placeholder: kTransparentImage,
               image: item.article?.images?[0].dynamicUrl ?? "",
-              fit: BoxFit.cover),
+              fit: BoxFit.fill),
         ),
         Positioned(
             bottom: 8,
             left: 8,
             child: Container(
-              padding: const EdgeInsets.fromLTRB(5, 1, 5, 1),
+              padding: const EdgeInsets.fromLTRB(5, 2, 6, 2),
               decoration: BoxDecoration(
                   color: Colors.black54,
                   borderRadius: BorderRadius.circular(10)),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(right: 3),

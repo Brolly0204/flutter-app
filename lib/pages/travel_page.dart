@@ -53,7 +53,6 @@ class _TravelPgeState extends State<TravelPage> with TickerProviderStateMixin {
         travelTabModel = model;
       });
     }).catchError((e) {
-      debugPrint('1232');
       debugPrint(e.toString());
     });
   }
